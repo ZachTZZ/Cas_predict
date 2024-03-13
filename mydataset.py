@@ -45,11 +45,11 @@ def MyDataLoader(file_path, batch_size=1, shuffle=False, num_workers=2, kmer_len
     return data_loader
 
 
-train_dataset = MyDataLoader("train.xlsx")
-
-if __name__ == '__main__':
-    for batch in train_dataset:
-        encoding, score = batch
-        print("Encoding:", encoding)
-        print("Score:", score)
-        break
+# train_dataset = MyDataLoader("train.xlsx")
+#
+# if __name__ == '__main__':
+#     for batch in train_dataset:
+#         encoding, score = batch
+#         print("Encoding:", encoding)
+#         print("Score:", score)
+#         break

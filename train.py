@@ -13,15 +13,6 @@ def scheduler(epoch, lr):
     else:
         return lr
 
-def r_squared(y_true, y_pred):
-    """
-    自定义R方损失函数
-    """
-    ss_res = torch.sum((y_true - y_pred) ** 2)
-    ss_tot = torch.sum((y_true - torch.mean(y_true)) ** 2)
-    r2 = 1 - (ss_res / (ss_tot + 1e-8))
-    return r2
-
 batch_size = 64
 learning_rate = 0.1
 num_epochs = 60
@@ -37,7 +28,6 @@ optimizer = torch.optim.Adam(lstm_model.parameters(), lr=learning_rate)
 scheduler_lr = lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: scheduler(epoch, learning_rate))
 criterion = nn.MSELoss()
 
-
 def train(model, train_loader, optimizer, num_epochs=10):
     losses = []
     for epoch in range(num_epochs):
@@ -47,7 +37,6 @@ def train(model, train_loader, optimizer, num_epochs=10):
         for inputs, labels in train_loader:
             optimizer.zero_grad()
             outputs = model(inputs)
-            # loss = 1 - r_squared(labels, outputs.squeeze())
             loss = criterion(outputs.squeeze(), labels)
             loss.backward()
             optimizer.step()
@@ -64,7 +53,6 @@ def train(model, train_loader, optimizer, num_epochs=10):
     plt.legend()
     plt.show()
     torch.save(model.state_dict(), 'train_cas_predict3.pth')
-
 
 if __name__ == '__main__':
     train(lstm_model, train_loader, optimizer, num_epochs)

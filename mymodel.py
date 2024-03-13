@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.optim as optim
 
 class mymodel(nn.Module):
     def __init__(self, input_size):

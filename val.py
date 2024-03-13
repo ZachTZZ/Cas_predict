@@ -3,10 +3,7 @@ import torch.nn as nn
 from mydataset import MyDataLoader
 from mymodel import mymodel
 from sklearn.metrics import r2_score
-import numpy as np
 
-# def inverse_sigmoid(x):
-#     return np.log(x / (1 - x + 1e-8) + 1e-8)
 
 def evaluate(model, data_loader, criterion):
     model.eval()
@@ -19,8 +16,6 @@ def evaluate(model, data_loader, criterion):
             outputs = model(inputs)
             loss = criterion(outputs.squeeze(), labels)
             total_loss += loss.item()
-
-            # predictions.extend(inverse_sigmoid(outputs.cpu().numpy()))
             predictions.extend(outputs.cpu().numpy())
             labels_list.extend(labels.cpu().numpy())
 
