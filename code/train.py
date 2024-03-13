@@ -1,6 +1,6 @@
 import torch
-from mydataset import MyDataLoader
-from mymodel import mymodel
+from code.mydataset import MyDataLoader
+from code.mymodel import mymodel
 import matplotlib.pyplot as plt
 import torch.optim.lr_scheduler as lr_scheduler
 import torch.nn as nn
@@ -17,7 +17,7 @@ batch_size = 64
 learning_rate = 0.1
 num_epochs = 60
 
-train_file_path = r"D:\pycharm\cas_predict\train.xlsx"
+train_file_path = r"../data/train.xlsx"
 train_loader = MyDataLoader(train_file_path, batch_size=batch_size, shuffle=True, num_workers=2)
 
 input_size = 16

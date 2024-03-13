@@ -1,7 +1,7 @@
 import torch
 import pandas as pd
-from mydataset import MyDataLoader
-from mymodel import mymodel
+from code.mydataset import MyDataLoader
+from code.mymodel import mymodel
 
 
 def predict(model, data_loader):
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     lstm_model = mymodel(input_size)
 
     # 加载训练好的模型参数
-    lstm_model.load_state_dict(torch.load('train_cas_predict2.pth'))
+    lstm_model.load_state_dict(torch.load('../model/train_cas_predict2.pth'))
 
     # 进行预测
     predictions = predict(lstm_model, test_loader)

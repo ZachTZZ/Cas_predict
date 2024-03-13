@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from mydataset import MyDataLoader
-from mymodel import mymodel
+from code.mydataset import MyDataLoader
+from code.mymodel import mymodel
 from sklearn.metrics import r2_score
 
 
@@ -32,7 +32,7 @@ val_file_path = r"D:\pycharm\cas_predict\calibration.xlsx"
 val_loader = MyDataLoader(val_file_path, batch_size=batch_size, shuffle=False, num_workers=2)
 
 lstm_model = mymodel(input_size)
-lstm_model.load_state_dict(torch.load('train_cas_predict2.pth'))
+lstm_model.load_state_dict(torch.load('../model/train_cas_predict2.pth'))
 
 criterion = nn.MSELoss()
 
