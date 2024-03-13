@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from code.mydataset import MyDataLoader
-from code.mymodel import mymodel
+from mydataset import MyDataLoader
+from mymodel import mymodel
 from sklearn.metrics import r2_score
 
 

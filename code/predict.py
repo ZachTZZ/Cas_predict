@@ -1,7 +1,7 @@
 import torch
 import pandas as pd
-from code.mydataset import MyDataLoader
-from code.mymodel import mymodel
+from mydataset import MyDataLoader
+from mymodel import mymodel
 
 
 def predict(model, data_loader):

@@ -1,6 +1,6 @@
 import torch
-from code.mydataset import MyDataLoader
-from code.mymodel import mymodel
+from mydataset import MyDataLoader
+from mymodel import mymodel
 import matplotlib.pyplot as plt
 import torch.optim.lr_scheduler as lr_scheduler
 import torch.nn as nn
